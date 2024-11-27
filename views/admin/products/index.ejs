@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+<body>
+    <header id="admin-header">
+        <h1>
+            Administration
+        </h1>
+    </header>
+    <div class="sidebar">
+        <h2>
+            Produkter
+        </h2>
+        <!-- Sidebar content goes here -->
+    </div>
+    <div class="main-content">
+        <div class="main-header">
+            <h2>Produkter</h2>
+            <a href="/admin/products/new" class="new-product-btn">Ny Produkt</a>
+        </div>
+        <!-- Main content goes here -->
+    </div>
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>Namn</th>
+                <th>SKU</th>
+                <th>Pris</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example row -->
+            <tr>
+                <td>Svart T-shirt</td>
+                <td>AAA111</td>
+                <td>199</td>
+                <td>
+                    <a href="#" class="edit-icon">✏️</a>
+                    <a href="#" class="trash-icon">🗑️</a>
+                </td>
+            </tr>
+            <tr>
+                <td>Vit T-shirt</td>
+                <td>BBB111</td>
+                <td>199</td>
+                <td>
+                    <a href="#" class="edit-icon">✏️</a>
+                    <a href="#" class="trash-icon">🗑️</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+</body>
+</html>

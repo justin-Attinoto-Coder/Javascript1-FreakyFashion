@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ny produkt</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+</head>
+<body>
+    <header id="admin-header">
+        <h1>
+            Administration
+        </h1>
+    </header>
+    <div class="sidebar">
+        <h2>Produkter</h2>
+        <!-- Sidebar content goes here -->
+    </div>
+    <div class="main-header">
+        <h2>Ny produkt</h2>
+    </div>
+    <div class="form-container">
+        <form>
+            <label for="product-name">Namn</label>
+            <input type="text" id="product-name" name="product-name" placeholder="Ange namn" maxlength="50" required><br><br>
+
+            <label for="description">Beskrivning</label>
+            <textarea id="description" name="description" placeholder="Ange beskrivning" required></textarea><br><br>
+
+            <label for="image">Bild</label>
+            <input type="file" id="image" name="image" accept=".png, .jpeg, .jpg" required><br><br>
+
+            <label for="sku">SKU (Format: XXXYYY):</label>
+            <input type="text" id="sku" name="sku" pattern="[A-Za-z]{3}[0-9]{3}" placeholder="Ange SKU    t.ex. ABC123" required><br><br>
+
+            <label for="price">Pris (SEK):</label>
+            <input type="number" id="price" name="price" step="0.01" placeholder="199" required><br><br>
+
+            <label for="publish-date">Publiseringsdatum</label>
+            <input type="date" id="publish-date" name="publish-date" min="2023-10-01" required><br><br>
+
+            <label>Kategorier</label><br>
+            <div class="checkbox-container">
+                <input type="checkbox" id="tshirt" name="category" value="T-shirt">
+                <label for="tshirt">T-shirts</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="summer-clothes" name="category" value="Summer clothes">
+                <label for="summer-clothes">Sommar</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="pants" name="category" value="Pants">
+                <label for="pants">Byxor</label>
+            </div>
+            <div class="checkbox-container">
+                <input type="checkbox" id="shoes" name="category" value="Shoes">
+                <label for="shoes">Skor</label>
+            </div><br><br>
+
+            <input type="submit" value="Lägg till">
+        </form>
+    </div>
+    
+</body>
+</html>
