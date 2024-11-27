@@ -20,6 +20,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 
+// Route to render the product details page
+app.get('/product-details', (req, res) => {
+    res.render('product-details');
+});
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

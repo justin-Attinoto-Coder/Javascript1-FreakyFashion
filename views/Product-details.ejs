@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produkt <Details></Details></title>
+    <link rel="stylesheet" href="/stylesheets/Product-details-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <img src="../img/FreakyFashionLogo.jfif" alt="Freaky Fashion Logo" class="logo">
+        <div class="search-container">
+            <i class="< class= fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search..." class="search-bar">
+        </div>
+        <div class="header-icons">
+            <a href="#"><i class="fas fa-heart header-icon"></i></a>
+            <a href="#"><i class="fas fa-shopping-basket header-icon"></i></a>
+        </div>
+        <nav class="header-nav-menu">
+            <ul>
+                <li><a href="#">Nyheter</a></li>
+                <li class="categories-lg"><a href="#">Kategorier</a></li> <!-- New Categories link -->
+                <li><a href="#">Topplistan</a></li>
+                <li><a href="#">Rea</a></li>
+                <li><a href="#">Kampanjer</a></li>
+            </ul>
+        </nav>    
+    </header>
+    <main>
+        <!-- Svart troja from Products Section for less than 640px -->
+        <section class="popular-products-unique">
+            <div class="product-unique">
+                <a href="product-details.html" class="product-link-unique">
+                    <div class="new-overlay-unique">Nyhet</div>
+                    <div class="heart-overlay-unique"><i class="far fa-heart"></i></div>
+                    <img src="../img/Svart%20troja.webp" alt="Svart troja">
+                    <div class="product-info">
+                        <div class="product-header-unique">
+                            <h3>Svart tröja</h3>
+                        </div>
+                        <div class="popular-product-unique">
+                            <div class="product-p-unique">Levis</div>
+                            <div class="product-description-unique">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</div>
+                        </div>                        
+                        <p class="price-unique">349 SEK</p>
+                    </div>
+                </a>
+                <button class="add-to-cart-btn">Lägg i varukorg</button>
+            </div>
+        </section>
+
+        <!-- Similar products section -->
+        <section class="similar-products">
+            <h2>Liknande Produkter</h2>
+            <div class="product-navigation">
+                <div class="arrow left-arrow">&#9664;</div> <!-- Left arrow -->
+                <div class="product-grid">
+                    <div class="product-item">
+                        <div class="new-overlay">Nyhet</div>
+                        <img src="../img/Army%20green%20troja.webp" alt="Army green troja">
+                        <div class="product-header">
+                            <h3>Arme grön tröja</h3>
+                            <p class="price">449 SEK</p>
+                        </div>
+                        <p>Levis</p>
+                    </div>
+        <div class="product-item">
+                <img src="../img/Kaki%20troja.webp" alt="Kaki troja">
+                <div class="product-header">
+                    <h3>Kaki tröja</h3>
+                    <p class="price">449 SEK</p>
+                </div>
+                <p>Levis</p>
+        </div>
+        <div class="product-item">
+                <img src="../img/Mörk%20grå%20troja.webp" alt="Mörk grå troja">
+                <div class="product-header">
+                    <h3>Mörk grå tröja</h3>
+                    <p class="price">449 SEK</p>
+                </div>
+                <p>Levis</p>
+            </div>
+            <!-- Add more product items as needed -->
+        </div>
+        <div class="arrow right-arrow">&#9654;</div> <!-- Right arrow -->
+    </div>
+</section>
+
+<!-- Features Navigation Menu -->
+<div class="features">
+    <div class="features-nav">
+        <div class="feature-icon"><i class="fa-solid fa-earth-europe"></i> Gratis frakt och returer</div>
+        <div class="feature-icon"><i class="fa-solid fa-jet-fighter"></i>Expressfrakt</div>
+        <div class="feature-icon"><i class="fa-solid fa-shield"></i> Säkert betalning</div>
+        <div class="feature-icon"><i class="fa-regular fa-face-smile"></i> Nyheter varje dag</div>
+    </div>
+</div>
+
+<!-- Accordion Component for less than 640px -->
+<div class="accordion">
+    <div class="accordion-item">
+        <button class="accordion-header">Shopping</button>
+        <div class="accordion-content" style="display: block;">
+            <ul>
+                <li><a href="#">Vinterjackor</a></li>
+                <li><a href="#">Pufferjackor</a></li>
+                <li><a href="#">Kappa</a></li>
+                <li><a href="#">Trenchcoats</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-header">Mina sidor</button>
+        <div class="accordion-content">
+            <ul>
+                <li><a href="#">Mina ordrar</a></li>
+                <li><a href="#">Mitt konto</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="accordion-item">
+        <button class="accordion-header">Kundtjänst</button>
+        <div class="accordion-content">
+            <ul>
+                <li><a href="#">Returnpolicy</a></li>
+                <li><a href="#">Integritetspolicy</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- Accordion Component for min-width 640px -->
+<section class="accordion-lg">
+    <div class="accordion-column">
+        <h3>Shopping</h3>
+        <ul>
+            <li><a href="#">Vinterjackor</a></li>
+            <li><a href="#">Pufferjackor</a></li>
+            <li><a href="#">Kappa</a></li>
+            <li><a href="#">Trenchcoats</a></li>
+        </ul>
+    </div>
+    <div class="accordion-column">
+        <h3>Mina sidor</h3>
+        <ul>
+            <li><a href="#">Mina ordrar</a></li>
+            <li><a href="#">Mitt konto</a></li>
+        </ul>
+    </div>
+    <div class="accordion-column">
+        <h3>Kundtjänst</h3>
+        <ul>
+            <li><a href="#">Returnpolicy</a></li>
+            <li><a href="#">Integritetspolicy</a></li>
+        </ul>
+    </div>
+</section>
+
+<!-- Footer for less than 640px -->
+<footer class="footer">
+    <p>© Freaky Fashion</p>
+</footer>
+
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
