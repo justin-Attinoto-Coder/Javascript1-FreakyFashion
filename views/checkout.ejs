@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="sv">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Checkout</title>
+        <link rel="stylesheet" href="../public/stylesheets/Checkout-styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+<body>
+    <header>
+        <img src="../img/Freaky%20Fashion%20Logo.jfif" alt="Freaky Fashion Logo" class="logo">
+        <div class="search-container">
+            <i class="< class= fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search..." class="search-bar">
+        </div>
+        <div class="header-icons">
+            <a href="#"><i class="fas fa-heart header-icon"></i></a>
+            <a href="#"><i class="fas fa-shopping-basket header-icon"></i></a>
+        </div>
+        <nav class="header-nav-menu">
+            <ul>
+                <li><a href="#">Nyheter</a></li>
+                <li><a href="#">Topplistan</a></li>
+                <li><a href="#">Rea</a></li>
+                <li><a href="#">Kampanjer</a></li>
+            </ul>
+        </nav>    
+    </header>
+    <main>
+        <section class="checkout-original">
+            <h2 class="checkout-title">Kassan</h2>
+            <div class="checkout-item1">
+                <div class="product-header">
+                    <div class="quantity-container">
+                        <input type="number" class="quantity" value="1" min="1"> <span>x</span>
+                    </div>
+                    <h3>Svart t-shirt</h3>
+                    <p class="price">199 SEK</p>
+                </div>
+                <p>199 SEK</p>
+            </div>
+            <div class="checkout-item2">
+                <div class="product-header">
+                    <div class="quantity-container">
+                        <input type="number" class="quantity" value="1" min="1"> <span>x</span>
+                    </div>
+                    <h3>Vit t-shirt</h3>
+                    <p class="price">398 SEK</p>
+                </div>
+                <p>199 SEK</p>
+            </div>
+            <!-- Add more items as needed -->
+        </section>
+
+        <section class="checkout-table">
+            <h2 class="checkout-title-table">Kassan</h2>
+            <table class="checkout-table-unique">
+                <thead>
+                    <tr>
+                        <th>Produkt</th>
+                        <th>Antal</th>
+                        <th>Pris</th>
+                        <th>Totalt</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Svart t-shirt</td>
+                        <td><input type="number" class="quantity" value="1" min="1"></td>
+                        <td>199 kr</td>
+                        <td>199 kr</td>
+                    </tr>
+                    <tr>
+                        <td>Vit t-shirt</td>
+                        <td><input type="number" class="quantity" value="2" min="1"></td>
+                        <td>199 kr</td>
+                        <td>398 kr</td>
+                    </tr>
+                    <!-- Add more items as needed -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="customer-info">
+            <h2 class="customer-info-title">Kunduppgifter</h2>
+            <form>
+                <div class="name-container">
+                    <div class="field-container">
+                        <label for="first-name">Förnamn</label>
+                        <input type="text" id="first-name" name="first-name" required>
+                    </div>
+                    <div class="field-container">
+                        <label for="last-name">Efternamn</label>
+                        <input type="text" id="last-name" name="last-name" required>
+                    </div>
+                </div>
+                
+                <div class="email-container">
+                    <label for="email">E-post</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="address-container">
+                    <div class="form-title">Adress</div>
+                    <label for="street">Gata</label>
+                    <input type="text" id="street" name="street" required>
+                    
+                    <label for="zip">Postnummer</label>
+                    <input type="text" id="zip" name="zip" required>
+                    
+                    <label for="city">Stad</label>
+                    <input type="text" id="city" name="city" required>
+                </div>
+                
+                <label for="newsletter">
+                    <input type="checkbox" id="newsletter" name="newsletter">
+                    Jag vill ta emot nyhetsbrev
+                </label>                
+            </form>
+            <div><button type="submit">Köp</button></div>
+        </section>
+
+        <!-- Features Navigation Menu -->
+        <div class="features">
+            <nav class="features-nav">
+                <ul>
+                    <li><a href="#"><i class="fa-solid fa-earth-europe"></i> Gratis frakt och returer</a></li>
+                    <li><a href="#"><i class="fa-solid fa-jet-fighter"></i> Expressfrakt</a></li>
+                    <li><a href="#"><i class="fa-solid fa-shield"></i> Säkra betalningar</a></li>
+                    <li><a href="#"><i class="fa-regular fa-face-smile"></i> Nyheter varje dag</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Accordion Component for less than 640px -->
+        <div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-header">Shopping</button>
+                <div class="accordion-content" style="display: block;">
+                    <ul>
+                        <li><a href="#">Vinterjackor</a></li>
+                        <li><a href="#">Pufferjackor</a></li>
+                        <li><a href="#">Kappa</a></li>
+                        <li><a href="#">Trenchcoats</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Mina sidor</button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Mina ordrar</a></li>
+                        <li><a href="#">Mitt konto</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-header">Kundtjänst</button>
+                <div class="accordion-content">
+                    <ul>
+                        <li><a href="#">Returnpolicy</a></li>
+                        <li><a href="#">Integritetspolicy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+            <!-- Accordion Component for min-width 640px -->
+    <section class="accordion-lg">
+        <div class="accordion-column">
+            <h3>Shopping</h3>
+            <ul>
+                <li><a href="#">Vinterjackor</a></li>
+                <li><a href="#">Pufferjackor</a></li>
+                <li><a href="#">Kappa</a></li>
+                <li><a href="#">Trenchcoats</a></li>
+            </ul>
+        </div>
+        <div class="accordion-column">
+            <h3>Mina sidor</h3>
+            <ul>
+                <li><a href="#">Mina ordrar</a></li>
+                <li><a href="#">Mitt konto</a></li>
+            </ul>
+        </div>
+        <div class="accordion-column">
+            <h3>Kundtjänst</h3>
+            <ul>
+                <li><a href="#">Returnpolicy</a></li>
+                <li><a href="#">Integritetspolicy</a></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer for less than 640px -->
+    <footer class="footer">
+        <p>© Freaky Fashion</p>
+    </footer>
+
+        
+    </main>
+</body>
+</html>
