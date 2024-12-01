@@ -3,7 +3,6 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
 var indexRouter = require('./routes/index');
 
 var app = express();
@@ -24,6 +23,12 @@ app.get('/', (req, res) => {
 });
 
 app.use('/', indexRouter);
+
+app.post('/admin/products/new', (req, res) => {
+  const { productName, sku, price } = req.body;
+  
+  console.log(productName, sku, price);
+})
 
 // Route to render the product details page
 app.get('/product-details', (req, res) => {
