@@ -25,9 +25,9 @@ app.get('/', (req, res) => {
 app.use('/', indexRouter);
 
 app.post('/admin/products/new', (req, res) => {
-  const { productName, sku, price } = req.body;
+  const { name, description, image, brand, sku, price, publishingDate } = req.body;
   
-  console.log(productName, sku, price);
+  console.log(name, description, image, brand, sku, price, publishingDate);
 })
 
 // Route to render the product details page

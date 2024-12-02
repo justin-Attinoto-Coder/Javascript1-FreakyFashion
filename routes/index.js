@@ -3,17 +3,13 @@ var router = express.Router();
 const Database = require('better-sqlite3');
 const db = new Database('./db/product-manager.db', { verbose: console.log });
 
+// Middleware to parse JSON bodies
+router.use(express.json());
 
-// GET / - Admin new product page
+// Middleware to serve static files
+router.use(express.static('public'));
 
-router.get('/admin/products/new', function (req, res, next) {
-
-  res.render('admin/products/new', {
-    title: 'Admin Products',
-    products: []
-    });
-  });
-
+// GET /admin/products - Admin products page (initially empty)
 router.get('/admin/products', function (req, res, next) {
   res.render('admin/products/index', {
     title: 'Admin Products',
@@ -21,24 +17,36 @@ router.get('/admin/products', function (req, res, next) {
   });
 });
 
-// GET / admin/products/load - API endpoint Load all products
+// GET /admin/products/load - API endpoint to load all products
 router.get('/admin/products/load', function (req, res, next) {
-
   const rows = db.prepare(`
     SELECT id,
-          name as name,
-          description as description,
-          image as image,
-          SKU as SKU,
-          price as price,
-          publishing_date as publishing_date,
-          category_id as category_id
+          name,
+          description,
+          image,
+          brand,
+          SKU,
+          price,
+          publishingDate
     FROM products
-    `).all();
+  `).all();
 
-    res.json(rows);
+  res.json(rows);
 });
 
+// POST /admin/products - API endpoint to add a new product
+router.post('/admin/products', function (req, res, next) {
+  const { name, description, image, brand, sku, price, publishingDate} = req.body;
+
+  const stmt = db.prepare(`
+    INSERT INTO products (name, description, image, brand, sku, price, publishingDate)
+    VALUES (?, ?, ?, ?, ?, ?, ?)
+  `);
+
+  const info = stmt.run(name, description, image, brand, sku, price, publishingDate);
+
+  res.json({ id: info.lastInsertRowid });
+});
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
