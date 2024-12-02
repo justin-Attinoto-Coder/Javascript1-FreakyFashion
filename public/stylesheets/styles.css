@@ -470,6 +470,30 @@ header {
     background-color: #f4f4f4;
 }
 
+.load-product-btn {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    position: absolute;
+    top: 140px;
+    right: 200px;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    display: inline-block;
+    color: inherit;
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
+.load-product-btn i a {
+    text-decoration: none;
+    color: #000000;
+}
+
+.load-product-btn:hover {
+    background-color: #f4f4f4;
+}
+
 .product-table {
     position: absolute;
     top: 200px;

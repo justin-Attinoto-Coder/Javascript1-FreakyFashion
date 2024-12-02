@@ -1,4 +1,4 @@
-const form = document.querySelector('form');
+/* const form = document.querySelector('form');
 
 form.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -21,4 +21,4 @@ form.addEventListener('submit', (event) => {
         },
         body: JSON.stringify(productData)
     });
-});
+}); */
