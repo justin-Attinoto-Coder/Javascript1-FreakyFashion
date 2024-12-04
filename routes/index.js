@@ -50,7 +50,48 @@ router.post('/admin/products', function (req, res, next) {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('freaky-fashion', { title: 'Freaky Fashion' });
+  const rows = db.prepare(`
+    SELECT  id,
+            name,
+            image,
+            brand,
+            sku, 
+            price,
+            publishingDate
+    FROM products
+    ORDER BY RANDOM()
+    LIMIT 8
+  `).all();
+
+  res.render('index', { 
+    title: 'Freaky Fashion', 
+    products: rows 
+  });
+});
+
+router.get('/product-details/:id', function(req, res, next) {
+  const productId = req.params.id;
+  const product = db.prepare(`
+    SELECT id,
+          name,
+          description,
+          image,
+          brand,
+          sku,
+          price,
+          publishingDate
+    FROM products
+    WHERE id = ?
+    `).get(productId);
+
+    if (product) {
+      res.render('product-details', {
+        title: 'Product Details',
+        product: product
+      });
+    } else {
+      res.status(404).render('Product not found');
+};
 });
 
 /* GET checkout page. */

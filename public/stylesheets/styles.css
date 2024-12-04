@@ -151,14 +151,14 @@ header {
 
 .product img {
     width: 100%;
-    height: auto;
+    height: 25.0rem;
     border-radius: 10px;
     margin-bottom: 10px;
     border: 1px solid #050505;
 }
 
 .product h3 {
-    font-size: 1.5em;
+    font-size: 0.9em;
     margin-bottom: 10px;
     color:#050505
 }
@@ -178,8 +178,8 @@ header {
 .new-overlay {
     position: absolute;
     z-index: 10;
-    top: 80px;
-    left: 45px;
+    top: 8%;
+    left: 10%;
     background-color: #050505;
     color: white;
     padding: 6px 14px;
@@ -192,8 +192,8 @@ header {
 .heart-overlay {
     position: absolute;
     z-index: 10;
-    top: 75%;
-    left: 85%;
+    top: 70%;
+    left: 80%;
     border-radius: 50%;
     padding: 5px;
     cursor: pointer;
@@ -214,7 +214,7 @@ header {
 
 .product-header h3 {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-decoration: none;
 }
 
@@ -716,23 +716,20 @@ input[type="submit"]:hover {
         padding: 10px; /* Reduced padding */
     }
 
+    .product img {
+        height: 24.0rem;
+    }
+
     .product-header h3 {
-        font-size: 1.2em; /* Reduced font size */
+        font-size: 0.8em; /* Reduced font size */
     }
 
     .product-header .price {
-        font-size: 1em; /* Reduced font size */
+        font-size: 0.8em; /* Reduced font size */
     }
 
     .product p {
         font-size: 0.9em; /* Reduced font size */
-    }
-
-    .new-overlay {
-        position: absolute;
-        z-index: 10;
-        top: 40px;
-        left: 20px;
     }
 
     .features-nav {
@@ -883,17 +880,22 @@ input[type="submit"]:hover {
     }
 
     .product {
+        position: relative;
         width: auto; /* Adjust width for grid layout */
         padding: 10px; /* Reduced padding */
         margin: 10px; /* Reduced margin */
     }
 
+    .product img {
+        height: 20.0rem;
+    }
+
     .product-header h3 {
-        font-size: 1.1em; /* Reduced font size */
+        font-size: 0.8em; /* Reduced font size */
     }
 
     .product-header .price {
-        font-size: 0.9em; /* Reduced font size */
+        font-size: 0.8em; /* Reduced font size */
     }
 
     .product p {
@@ -904,7 +906,7 @@ input[type="submit"]:hover {
         position: absolute;
         z-index: 10;
         top: 68%;
-        left: 81.5%;
+        left: 78.5%;
         border-radius: 50%;
         padding: 5px;
         cursor: pointer;
@@ -918,13 +920,6 @@ input[type="submit"]:hover {
 
     .popular-products {
         grid-template-columns: repeat(4, 1fr); /* Adjust to 4 columns for large screens */
-    }
-
-    .new-overlay {
-        position: absolute;
-        z-index: 10;
-        top: 5%;
-        left: 10%;
     }
 
     .features-nav {

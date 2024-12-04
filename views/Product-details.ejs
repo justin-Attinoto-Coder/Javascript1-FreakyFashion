@@ -9,9 +9,11 @@
 </head>
 <body>
     <header>
-        <img src="../img/FreakyFashionLogo.jfif" alt="Freaky Fashion Logo" class="logo">
+        <a href="/">
+        <img src="/img/FreakyFashionLogo.jfif" alt="Freaky Fashion Logo" class="logo">
+        </a>
         <div class="search-container">
-            <i class="< class= fa-solid fa-magnifying-glass"></i>
+            <i class="class= fa-solid fa-magnifying-glass"></i>
             <input type="text" placeholder="Search..." class="search-bar">
         </div>
         <div class="header-icons">
@@ -29,24 +31,22 @@
         </nav>    
     </header>
     <main>
-        <!-- Svart troja from Products Section for less than 640px -->
+        <!-- Product details section -->
         <section class="popular-products-unique">
             <div class="product-unique">
-                <a href="product-details.html" class="product-link-unique">
-                    <div class="new-overlay-unique">Nyhet</div>
-                    <div class="heart-overlay-unique"><i class="far fa-heart"></i></div>
-                    <img src="../img/Svart%20troja.webp" alt="Svart troja">
-                    <div class="product-info">
-                        <div class="product-header-unique">
-                            <h3>Svart tröja</h3>
-                        </div>
-                        <div class="popular-product-unique">
-                            <div class="product-p-unique">Levis</div>
-                            <div class="product-description-unique">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex</div>
-                        </div>                        
-                        <p class="price-unique">349 SEK</p>
+                <div class="new-overlay-unique">Nyhet</div>
+                <div class="heart-overlay-unique"><i class="far fa-heart"></i></div>
+                <img src="<%= product.image%>" alt="<%= product.name%>">
+                <div class="product-info-unique">
+                    <div class="product-header-unique">
+                        <h3><%= product.name%></h3>
                     </div>
-                </a>
+                    <div class="popular-product-unique">
+                        <div class="product-p-unique"><%= product.brand%></div>
+                        <div class="product-description-unique"><%= product.description %></div>
+                    </div>                        
+                    <p class="price-unique"><%= product.price%> SEK</p>
+                </div>
                 <button class="add-to-cart-btn">Lägg i varukorg</button>
             </div>
         </section>

@@ -18,9 +18,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Define the route for the index page
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
     res.render('index'); // This will render views/index.ejs
-});
+}); */
 
 app.use('/', indexRouter);
 

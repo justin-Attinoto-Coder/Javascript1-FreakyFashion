@@ -20,13 +20,13 @@
         </div>
         <nav class="nav-menu">
             <ul>
-                <li><a href="/">Home</a></li>
+                <!-- <li><a href="/">Home</a></li>
                 <li><a href="/about">About Us</a></li>
                 <li><a href="/contact">Contact Us</a></li>
-                <li><a href="/checkout">Checkout</a></li>
+                <li><a href="/checkout">Checkout</a></li> -->
                 <li><a href="#">Nyheter</a></li>
-                <li class="categories-lg"><a href="#">Kategorier</a></li>
-                <li><a href="#">Topplistan</a></li>
+<!--                 <li class="categories-lg"><a href="#">Kategorier</a></li>
+ -->                <li><a href="#">Topplistan</a></li>
                 <li><a href="#">Rea</a></li>
                 <li><a href="#">Kampanjer</a></li>
             </ul>
@@ -54,19 +54,21 @@
         </div>
         <!-- Popular Products Section -->
         <section class="popular-products">
-            <a href="product-details.html" class="product-link">
+            <% products.forEach(product => { %>
+            <a href="product-details/<%= product.id %>" class="product-link">
             <div class="product">
                 <div class="new-overlay">Nyhet</div>
-                <div class="heart-overlay"><i class="fas fa-heart"></i></div>
-                <img src="/img/Army-green-troja.webp" alt="Army green troja">
+                <div class="heart-overlay"><i class="far fa-heart"></i></div>
+                <img src="<%= product.image %>" alt="<%= product.name %>">
                 <div class="product-header">
-                    <h3>Arme grön tröja</h3>
-                    <p class="price">449 SEK</p>
+                    <h3><%= product.name %></h3>
+                    <p class="price"><%= product.price %> SEK</p>
                 </div>
-                <p>Levis</p>
+                <p><%= product.brand %></p>
             </div>
             </a>
-            <a href="product-details.html" class="product-link">
+            <% }) %>
+            <!-- <a href="product-details.html" class="product-link">
             <div class="product">
                 <div class="heart-overlay"><i class="far fa-heart"></i></div>
                 <img src="/img/blue-t-shirt.webp" alt="blue t-shirt">
@@ -132,7 +134,6 @@
                 <p>Levis</p>
             </div>
             </a>
-            <!-- Svart troja from Products Section for less than 640px -->
             <a href="product-details.html" class="product-link">
             <div class="product">
                 <div class="heart-overlay"><i class="far fa-heart"></i></div>
@@ -143,7 +144,7 @@
                 </div>
                 <p>Levis</p>
             </div>
-            </a>
+            </a> -->
         </section>
         <!-- Features Navigation Menu -->
         <div class="features">

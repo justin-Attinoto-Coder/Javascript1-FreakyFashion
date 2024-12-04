@@ -1,4 +1,4 @@
-/* document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function() {
     const heartOverlays = document.querySelectorAll('.heart-overlay i');
 
     heartOverlays.forEach(heart => {
@@ -50,4 +50,3 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
- */
