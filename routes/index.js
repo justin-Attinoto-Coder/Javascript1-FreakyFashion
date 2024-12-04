@@ -85,9 +85,25 @@ router.get('/product-details/:id', function(req, res, next) {
     `).get(productId);
 
     if (product) {
+      const similarProducts = db.prepare(`
+        SELECT id,
+              name,
+              image,
+              brand,
+              sku,
+              price,
+              publishingDate
+        FROM products
+        WHERE brand = ?
+        AND id != ?
+        ORDER BY RANDOM()
+        LIMIT 3
+      `).all(product.brand, productId);
+
       res.render('product-details', {
         title: 'Product Details',
-        product: product
+        product: product,
+        similarProducts: similarProducts
       });
     } else {
       res.status(404).render('Product not found');

@@ -14,17 +14,18 @@
         </a>
         <div class="search-container">
             <i class="class= fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Search..." class="search-bar">
+            <input type="text" placeholder="Sök produkt..." class="search-bar">
+            <div class="header-icons">
+                <a href="#"><i class="fas fa-heart header-icon"></i></a>
+                <a href="#"><i class="fas fa-shopping-basket header-icon"></i></a>
+            </div>
         </div>
-        <div class="header-icons">
-            <a href="#"><i class="fas fa-heart header-icon"></i></a>
-            <a href="#"><i class="fas fa-shopping-basket header-icon"></i></a>
-        </div>
+        
         <nav class="header-nav-menu">
             <ul>
                 <li><a href="#">Nyheter</a></li>
-                <li class="categories-lg"><a href="#">Kategorier</a></li> <!-- New Categories link -->
-                <li><a href="#">Topplistan</a></li>
+<!--                 <li class="categories-lg"><a href="#">Kategorier</a>
+ -->            <li><a href="#">Topplistan</a></li>
                 <li><a href="#">Rea</a></li>
                 <li><a href="#">Kampanjer</a></li>
             </ul>
@@ -57,16 +58,20 @@
             <div class="product-navigation">
                 <div class="arrow left-arrow">&#9664;</div> <!-- Left arrow -->
                 <div class="product-grid">
+                    <% similarProducts.forEach(similarProduct => { %>
+                    <a href="/product-details/<%= similarProduct.id %>" class="product-link">
                     <div class="product-item">
                         <div class="new-overlay">Nyhet</div>
-                        <img src="../img/Army%20green%20troja.webp" alt="Army green troja">
+                        <img src="<%= similarProduct.image%>" alt="<%= similarProduct.name %>">
                         <div class="product-header">
-                            <h3>Arme grön tröja</h3>
-                            <p class="price">449 SEK</p>
+                            <h3><%= similarProduct.name %></h3>
+                            <p class="price"><%= similarProduct.price %> SEK</p>
                         </div>
-                        <p>Levis</p>
+                        <p><%= similarProduct.brand %></p>
                     </div>
-        <div class="product-item">
+                </a>
+                <% }) %>
+        <!-- <div class="product-item">
                 <img src="../img/Kaki%20troja.webp" alt="Kaki troja">
                 <div class="product-header">
                     <h3>Kaki tröja</h3>
@@ -81,7 +86,7 @@
                     <p class="price">449 SEK</p>
                 </div>
                 <p>Levis</p>
-            </div>
+            </div> -->
             <!-- Add more product items as needed -->
         </div>
         <div class="arrow right-arrow">&#9654;</div> <!-- Right arrow -->
