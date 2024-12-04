@@ -36,14 +36,14 @@ router.get('/admin/products/load', function (req, res, next) {
 
 // POST /admin/products - API endpoint to add a new product
 router.post('/admin/products', function (req, res, next) {
-  const { name, description, image, brand, sku, price, publishingDate} = req.body;
+  const { name, description, image, brand, sku, price, publishingDate, urlSlug} = req.body;
 
   const stmt = db.prepare(`
-    INSERT INTO products (name, description, image, brand, sku, price, publishingDate)
+    INSERT INTO products (name, description, image, brand, sku, price, publishingDate, urlSlug)
     VALUES (?, ?, ?, ?, ?, ?, ?)
   `);
 
-  const info = stmt.run(name, description, image, brand, sku, price, publishingDate);
+  const info = stmt.run(name, description, image, brand, sku, price, publishingDate, urlSlug);
 
   res.json({ id: info.lastInsertRowid });
 });
@@ -57,7 +57,8 @@ router.get('/', function(req, res, next) {
             brand,
             sku, 
             price,
-            publishingDate
+            publishingDate,
+            urlSlug
     FROM products
     ORDER BY RANDOM()
     LIMIT 8
@@ -69,45 +70,47 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/product-details/:id', function(req, res, next) {
-  const productId = req.params.id;
+router.get('/product-details/:urlSlug', function(req, res, next) {
+  const urlSlug = req.params.urlSlug;
   const product = db.prepare(`
     SELECT id,
-          name,
-          description,
-          image,
-          brand,
-          sku,
-          price,
-          publishingDate
+           name,
+           description,
+           image,
+           brand,
+           sku, 
+           price,
+           publishingDate,
+           urlSlug
     FROM products
-    WHERE id = ?
-    `).get(productId);
+    WHERE urlSlug = ?
+  `).get(urlSlug);
 
-    if (product) {
-      const similarProducts = db.prepare(`
-        SELECT id,
-              name,
-              image,
-              brand,
-              sku,
-              price,
-              publishingDate
-        FROM products
-        WHERE brand = ?
-        AND id != ?
-        ORDER BY RANDOM()
-        LIMIT 3
-      `).all(product.brand, productId);
+  if (product) {
+    const similarProducts = db.prepare(`
+      SELECT id,
+             name,
+             description,
+             image,
+             brand,
+             sku,
+             price,
+             publishingDate,
+             urlSlug
+      FROM products
+      WHERE brand = ? AND id != ?
+      ORDER BY RANDOM()
+      LIMIT 3
+    `).all(product.brand, product.id);
 
-      res.render('product-details', {
-        title: 'Product Details',
-        product: product,
-        similarProducts: similarProducts
-      });
-    } else {
-      res.status(404).render('Product not found');
-};
+    res.render('product-details', { 
+      title: 'Product Details', 
+      product: product,
+      similarProducts: similarProducts
+    });
+  } else {
+    res.status(404).send('Product not found');
+  }
 });
 
 /* GET checkout page. */

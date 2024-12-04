@@ -59,7 +59,7 @@
                 <div class="arrow left-arrow">&#9664;</div> <!-- Left arrow -->
                 <div class="product-grid">
                     <% similarProducts.forEach(similarProduct => { %>
-                    <a href="/product-details/<%= similarProduct.id %>" class="product-link">
+                    <a href="/product-details/<%= similarProduct.urlSlug %>" class="product-link">
                     <div class="product-item">
                         <div class="new-overlay">Nyhet</div>
                         <img src="<%= similarProduct.image%>" alt="<%= similarProduct.name %>">
