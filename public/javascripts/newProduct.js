@@ -1,4 +1,4 @@
-document.getElementById('new-product-form').addEventListener('submit', function(event) {
+document.getElementById('new-product-form').addEventListener('submit', async function(event) {
     event.preventDefault();
 
     const formData = {
@@ -11,24 +11,24 @@ document.getElementById('new-product-form').addEventListener('submit', function(
         publishingDate: document.getElementById('publishingDate').value
     };
 
-    fetch('/admin/products', {
+    try {
+    const response = await fetch('/admin/products', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(formData)
-    })
-    .then(response => {
-        if (response.ok) {
-            window.location.href = '/admin/products';
-        } else {
-            return response.json().then(error => {
-                throw new Error(error.message);
-            });
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Failed to add product: ' + error.message);
     });
+
+    const result = await response.json();
+    if (response.ok) {
+        alert(result.message || 'Product added successfully');
+        window.location.href = '/admin/products';  // Redirect to the admin products page
+    } else {
+        alert(result.error || 'Failed to add product');
+    }
+} catch(error) {
+    console.error('Error:', error);
+    alert('Failed to add product: ' + error.message);
+    }
 });

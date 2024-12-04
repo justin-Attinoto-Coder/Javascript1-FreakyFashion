@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 const Database = require('better-sqlite3');
+const slugify = require('slugify');
 const db = new Database('./db/product-manager.db', { verbose: console.log });
 
 // Middleware to parse JSON bodies
@@ -34,13 +35,23 @@ router.get('/admin/products/load', function (req, res, next) {
   res.json(rows);
 });
 
+// GET /admin/products/new - Render the form for adding a new product
+router.get('/admin/products/new', function (req, res, next) {
+  res.render('admin/products/new', {
+    title: 'Add New Product'
+  });
+});
+
 // POST /admin/products - API endpoint to add a new product
 router.post('/admin/products', function (req, res, next) {
-  const { name, description, image, brand, sku, price, publishingDate, urlSlug} = req.body;
+  const { name, description, image, brand, sku, price, publishingDate } = req.body;
+
+  // Generate a URL slug for the new product
+  const urlSlug = slugify(name, { lower: true, strict: true });
 
   const stmt = db.prepare(`
     INSERT INTO products (name, description, image, brand, sku, price, publishingDate, urlSlug)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
   const info = stmt.run(name, description, image, brand, sku, price, publishingDate, urlSlug);
@@ -53,6 +64,7 @@ router.get('/', function(req, res, next) {
   const rows = db.prepare(`
     SELECT  id,
             name,
+            description,
             image,
             brand,
             sku, 
