@@ -16,17 +16,12 @@
         </div>
         <div class="header-icons">
             <a href="#"><i class="fas fa-heart header-icon"></i></a>
-            <a href="#"><i class="fas fa-shopping-basket header-icon"></i></a>
+            <a href="/checkout"><i class="fas fa-shopping-basket header-icon"></i></a>
         </div>
         <nav class="nav-menu">
             <ul>
-                <!-- <li><a href="/">Home</a></li>
-                <li><a href="/about">About Us</a></li>
-                <li><a href="/contact">Contact Us</a></li>
-                <li><a href="/checkout">Checkout</a></li> -->
                 <li><a href="#">Nyheter</a></li>
-<!--                 <li class="categories-lg"><a href="#">Kategorier</a></li>
- -->                <li><a href="#">Topplistan</a></li>
+                <li><a href="#">Topplistan</a></li>
                 <li><a href="#">Rea</a></li>
                 <li><a href="#">Kampanjer</a></li>
             </ul>
@@ -39,112 +34,50 @@
                 <h1>Lorem ipsum dolor</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>    
             </div>
-            <img src="../img/hero%202.0.jfif" alt="Hero Image" class="hero-image">
+            <img src="/img/hero.jfif" alt="Hero Image" class="hero-image">
         </section>
         <div class="spots">
             <div class="spot">
-                <a href="#"><img src="../img/Placeholder.png" alt="Spot1"></a>
+                <a href="#">
+                    <img src="/img/spot1.jfif" alt="Spot1">
+                    <div class="spot-text"><strong>Lorem</strong></div>
+                </a>
             </div>
             <div class="spot">
-                <a href="#"><img src="../img/Placeholder.png" alt="Spot2"></a>
+                <a href="#">
+                    <img src="/img/spot2.jfif" alt="Spot2">
+                    <div class="spot-text"><strong>Ipsum</strong></div>
+                </a>
             </div>
             <div class="spot">
-                <a href="#"><img src="../img/Placeholder.png" alt="Spot3"></a>
+                <a href="#">
+                    <img src="/img/spot3.jfif" alt="Spot3">
+                    <div class="spot-text"><strong>Dolor</strong></div>
+                </a>
             </div>
         </div>
         <!-- Popular Products Section -->
         <section class="popular-products">
+            <% 
+            const sevenDaysAgo = new Date();
+            sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+            %>
             <% products.forEach(product => { %>
-            <a href="product-details/<%= product.urlSlug %>" class="product-link">
-            <div class="product">
-                <div class="new-overlay">Nyhet</div>
-                <div class="heart-overlay"><i class="far fa-heart"></i></div>
-                <img src="<%= product.image %>" alt="<%= product.name %>">
-                <div class="product-header">
-                    <h3><%= product.name %></h3>
-                    <p class="price"><%= product.price %> SEK</p>
+            <a href="products/<%= product.urlSlug %>" class="product-link">
+                <div class="product">
+                    <% if (new Date(product.publishingDate) >= sevenDaysAgo) { %>
+                    <div class="new-overlay">Nyhet</div>
+                    <% } %>
+                    <div class="heart-overlay"><i class="far fa-heart"></i></div>
+                    <img src="<%= product.image %>" alt="<%= product.name %>">
+                    <div class="product-header">
+                        <h3><%= product.name %></h3>
+                        <p class="price"><%= product.price %> SEK</p>
+                    </div>
+                    <p><%= product.brand %></p>
                 </div>
-                <p><%= product.brand %></p>
-            </div>
             </a>
             <% }) %>
-            <!-- <a href="product-details.html" class="product-link">
-            <div class="product">
-                <div class="heart-overlay"><i class="far fa-heart"></i></div>
-                <img src="/img/blue-t-shirt.webp" alt="blue t-shirt">
-                <div class="product-header">
-                    <h3>Blå tröja</h3>
-                    <p class="price">349 SEK</p>
-                </div>
-                <p>Levis</p>
-            </div>
-            </a>
-            <a href="product-details.html" class="product-link">
-            <div class="product">
-                <div class="heart-overlay"><i class="far fa-heart"></i></div>
-                <img src="/img/Gray-t-shirt.webp" alt="Gray t-shirt">
-                <div class="product-header">
-                    <h3>Grå tröja</h3>
-                    <p class="price">349 SEK</p>
-                </div>
-                <p>Levis</p>
-            </div>
-            </a>
-            <a href="product-details.html" class="product-link">
-            <div class="product">
-                <div class="heart-overlay"><i class="far fa-heart"></i></div>
-                <img src="/img/Green-t-shirt.webp" alt="Green t-shirt">
-                <div class="product-header">
-                    <h3>Grön tröja</h3>
-                    <p class="price">349 SEK</p>
-                </div>
-                <p>Levis</p>
-            </div>
-            </a>
-            <a href="product-details.html" class="product-link">
-            <div class="product">
-                <div class="heart-overlay"><i class="far fa-heart"></i></div>
-                <img src="/img/Kaki-troja.webp" alt="Kaki troja">
-                <div class="product-header">
-                    <h3>Kaki tröja</h3>
-                    <p class="price">449 SEK</p>
-                </div>
-                <p>Levis</p>
-            </div>
-            </a>
-            <a href="product-details.html" class="product-link">
-            <div class="product">
-                <div class="heart-overlay"><i class="far fa-heart"></i></div>
-                <img src="/img/Khaki-t-shirt.webp" alt="Khaki t-shirt">
-                <div class="product-header">
-                    <h3>Khaki tröja</h3>
-                    <p class="price">349 SEK</p>
-                </div>
-                <p>Levis</p>
-            </div>
-            </a>
-            <a href="product-details.html" class="product-link">
-            <div class="product">
-                <div class="heart-overlay"><i class="far fa-heart"></i></div>
-                <img src="/img/Mörk-grå-troja.webp" alt="Mörk grå troja">
-                <div class="product-header">
-                    <h3>Mörk grå tröja</h3>
-                    <p class="price">449 SEK</p>
-                </div>
-                <p>Levis</p>
-            </div>
-            </a>
-            <a href="product-details.html" class="product-link">
-            <div class="product">
-                <div class="heart-overlay"><i class="far fa-heart"></i></div>
-                <img src="/img/Svart-troja.webp" alt="Svart troja">
-                <div class="product-header">
-                    <h3>Svart tröja</h3>
-                    <p class="price">349 SEK</p>
-                </div>
-                <p>Levis</p>
-            </div>
-            </a> -->
         </section>
         <!-- Features Navigation Menu -->
         <div class="features">

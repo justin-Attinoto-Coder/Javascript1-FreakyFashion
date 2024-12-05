@@ -82,7 +82,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
-router.get('/product-details/:urlSlug', function(req, res, next) {
+router.get('/products/:urlSlug', function(req, res, next) {
   const urlSlug = req.params.urlSlug;
   const product = db.prepare(`
     SELECT id,
@@ -127,7 +127,9 @@ router.get('/product-details/:urlSlug', function(req, res, next) {
 
 /* GET checkout page. */
 router.get('/checkout', function(req, res, next) {
-  res.render('checkout', { title: 'Checkout' });
+  res.render('checkout', { 
+    title: 'Checkout' 
+  });
 });
 
 /* GET about page. */

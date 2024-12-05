@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Produkt <Details></Details></title>
+    <title><%= product.name %></title>
     <link rel="stylesheet" href="/stylesheets/Product-details-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
@@ -59,7 +59,7 @@
                 <div class="arrow left-arrow">&#9664;</div> <!-- Left arrow -->
                 <div class="product-grid">
                     <% similarProducts.forEach(similarProduct => { %>
-                    <a href="/product-details/<%= similarProduct.urlSlug %>" class="product-link">
+                    <a href="/products/<%= similarProduct.urlSlug %>" class="product-link">
                     <div class="product-item">
                         <div class="new-overlay">Nyhet</div>
                         <img src="<%= similarProduct.image%>" alt="<%= similarProduct.name %>">
@@ -71,23 +71,6 @@
                     </div>
                 </a>
                 <% }) %>
-        <!-- <div class="product-item">
-                <img src="../img/Kaki%20troja.webp" alt="Kaki troja">
-                <div class="product-header">
-                    <h3>Kaki tröja</h3>
-                    <p class="price">449 SEK</p>
-                </div>
-                <p>Levis</p>
-        </div>
-        <div class="product-item">
-                <img src="../img/Mörk%20grå%20troja.webp" alt="Mörk grå troja">
-                <div class="product-header">
-                    <h3>Mörk grå tröja</h3>
-                    <p class="price">449 SEK</p>
-                </div>
-                <p>Levis</p>
-            </div> -->
-            <!-- Add more product items as needed -->
         </div>
         <div class="arrow right-arrow">&#9654;</div> <!-- Right arrow -->
     </div>

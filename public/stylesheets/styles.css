@@ -1,6 +1,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 header {
@@ -130,6 +131,10 @@ header {
     justify-content: space-around;
 }
 
+.spot-text {
+    display: none;
+}
+
 .popular-products {
     margin: 40px 20px;
     text-align: center;
@@ -151,14 +156,14 @@ header {
 
 .product img {
     width: 100%;
-    height: 25.0rem;
+    height: auto;
     border-radius: 10px;
     margin-bottom: 10px;
     border: 1px solid #050505;
 }
 
 .product h3 {
-    font-size: 0.9em;
+    font-size: 1.5em;
     margin-bottom: 10px;
     color:#050505
 }
@@ -178,8 +183,8 @@ header {
 .new-overlay {
     position: absolute;
     z-index: 10;
-    top: 8%;
-    left: 10%;
+    top: 80px;
+    left: 45px;
     background-color: #050505;
     color: white;
     padding: 6px 14px;
@@ -192,8 +197,8 @@ header {
 .heart-overlay {
     position: absolute;
     z-index: 10;
-    top: 70%;
-    left: 80%;
+    top: 75%;
+    left: 85%;
     border-radius: 50%;
     padding: 5px;
     cursor: pointer;
@@ -214,7 +219,7 @@ header {
 
 .product-header h3 {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.5em;
     text-decoration: none;
 }
 
@@ -470,30 +475,6 @@ header {
     background-color: #f4f4f4;
 }
 
-.load-product-btn {
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
-    position: absolute;
-    top: 140px;
-    right: 200px;
-    border: 1px solid #000000;
-    border-radius: 5px;
-    display: inline-block;
-    color: inherit;
-    background-color: #ffffff;
-    text-decoration: none;
-}
-
-.load-product-btn i a {
-    text-decoration: none;
-    color: #000000;
-}
-
-.load-product-btn:hover {
-    background-color: #f4f4f4;
-}
-
 .product-table {
     position: absolute;
     top: 200px;
@@ -716,20 +697,23 @@ input[type="submit"]:hover {
         padding: 10px; /* Reduced padding */
     }
 
-    .product img {
-        height: 24.0rem;
-    }
-
     .product-header h3 {
-        font-size: 0.8em; /* Reduced font size */
+        font-size: 1.2em; /* Reduced font size */
     }
 
     .product-header .price {
-        font-size: 0.8em; /* Reduced font size */
+        font-size: 1em; /* Reduced font size */
     }
 
     .product p {
         font-size: 0.9em; /* Reduced font size */
+    }
+
+    .new-overlay {
+        position: absolute;
+        z-index: 10;
+        top: 40px;
+        left: 20px;
     }
 
     .features-nav {
@@ -865,37 +849,57 @@ input[type="submit"]:hover {
 
     .spot img { 
         display: flex;;
-        width: 200%;
+        width: 100%;
         max-width: 340px;
         border-radius: 10px;
     }
 
-    .spots {
-        display: flex; /* Hide the spots */
-        margin: 20px 0;
+    .spot {
         position: relative;
-        left: -50px;
+        display: flex;
+        margin-left: 2.0rem;
+        width: 30%;
+    }
+
+    .spots {
+        position: relative;
+        display: flex; /* Hide the spots */
+        margin: 0;
+        position: relative;
         display: flex;
         justify-content:space-around;
     }
 
+    .spot-text {
+        position: absolute;
+        top: 35%;
+        left: 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        color: papayawhip;
+        font-size: 3.5rem;
+        justify-content: center;
+    }
+
     .product {
-        position: relative;
         width: auto; /* Adjust width for grid layout */
         padding: 10px; /* Reduced padding */
         margin: 10px; /* Reduced margin */
     }
 
     .product img {
-        height: 20.0rem;
+        width: 13rem;
+        height: 15.5rem;
     }
 
     .product-header h3 {
-        font-size: 0.8em; /* Reduced font size */
+        font-size: 1.1em; /* Reduced font size */
     }
 
     .product-header .price {
-        font-size: 0.8em; /* Reduced font size */
+        font-size: 0.9em; /* Reduced font size */
     }
 
     .product p {
@@ -906,7 +910,7 @@ input[type="submit"]:hover {
         position: absolute;
         z-index: 10;
         top: 68%;
-        left: 78.5%;
+        left: 81.5%;
         border-radius: 50%;
         padding: 5px;
         cursor: pointer;
@@ -920,6 +924,13 @@ input[type="submit"]:hover {
 
     .popular-products {
         grid-template-columns: repeat(4, 1fr); /* Adjust to 4 columns for large screens */
+    }
+
+    .new-overlay {
+        position: absolute;
+        z-index: 10;
+        top: 5%;
+        left: 10%;
     }
 
     .features-nav {
