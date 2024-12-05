@@ -82,6 +82,7 @@ router.get('/', function(req, res, next) {
   });
 });
 
+// GET /products/:urlSlug - Render product details page
 router.get('/products/:urlSlug', function(req, res, next) {
   const urlSlug = req.params.urlSlug;
   const product = db.prepare(`
@@ -99,7 +100,7 @@ router.get('/products/:urlSlug', function(req, res, next) {
   `).get(urlSlug);
 
   if (product) {
-    const similarProducts = db.prepare(`
+    const allProducts = db.prepare(`
       SELECT id,
              name,
              description,
@@ -110,15 +111,15 @@ router.get('/products/:urlSlug', function(req, res, next) {
              publishingDate,
              urlSlug
       FROM products
-      WHERE brand = ? AND id != ?
+      WHERE id != ?
       ORDER BY RANDOM()
-      LIMIT 3
-    `).all(product.brand, product.id);
+      LIMIT 4
+    `).all(product.id);  // Ensure only one parameter is passed
 
     res.render('product-details', { 
       title: 'Product Details', 
       product: product,
-      similarProducts: similarProducts
+      similarProducts: allProducts
     });
   } else {
     res.status(404).send('Product not found');

@@ -50,3 +50,37 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const productGrid = document.querySelector('.product-grid');
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+    let currentIndex = 0;
+
+    function updateSlide() {
+        const productWidth = document.querySelector('.product-item').offsetWidth;
+        const visibleProducts = 3; // Number of products visible at a time
+        const totalProducts = productGrid.children.length;
+        const maxIndex = totalProducts - visibleProducts;
+
+        // Wrap around if the currentIndex exceeds the bounds
+        if (currentIndex < 0) {
+            currentIndex = maxIndex;
+        } else if (currentIndex > maxIndex) {
+            currentIndex = 0;
+        }
+
+        productGrid.style.transform = `translateX(-${currentIndex * (productWidth + 20)}px)`;
+    }
+
+    leftArrow.addEventListener('click', function() {
+        currentIndex--;
+        updateSlide();
+    });
+
+    rightArrow.addEventListener('click', function() {
+        currentIndex++;
+        updateSlide();
+    });
+
+    updateSlide(); // Initialize the slide
+});

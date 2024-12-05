@@ -536,9 +536,17 @@ header {
 
    /* Default styles for the similar products */
 .similar-products {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
     display:block;
     margin-top: 10px; /* Add spacing above the section */
     padding: 20px; /* Add spacing around the section */
+}
+
+.product-grid-wrapper {
+    overflow: hidden;
+    width: 100%;
 }
 
 .similar-products h2 {
@@ -565,6 +573,7 @@ header {
     gap: 20px; /* Optional: space between items */
     overflow-x: auto; /* Allow horizontal scrolling */
     flex-grow: 1; /* Allow the grid to grow */
+    transition: transform 0.5s ease-in-out;
 }
 
 .new-overlay {
@@ -578,6 +587,8 @@ header {
 }
 
 .product-item {
+    min-width: calc(100% / 3 - 20px);
+    margin: 0 10px;
     flex: 1; /* Allow items to grow equally */
     padding: 10px; /* Space inside each item */
     font-size: 0.9em; /* Adjust font size */
@@ -594,6 +605,25 @@ header {
 .product-link {
     text-decoration: none; /* Remove underline from the link */
     color: inherit; /* Inherit text color */
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    text-decoration: none;
+    font-size: 0.7em;
+    color: inherit; /* Inherit text color */
+}
+
+.product-header p.price {
+    color: inherit; /* Inherit text color */
+    font-weight: bold; /* Bold text for the price */
+}
+
+.product-item p {
+    color: hsla(200, 50%, 75%, 1); /* Lighter text color */
 }
 
 .features-nav {

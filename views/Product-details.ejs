@@ -13,8 +13,10 @@
         <img src="/img/FreakyFashionLogo.jfif" alt="Freaky Fashion Logo" class="logo">
         </a>
         <div class="search-container">
-            <i class="class= fa-solid fa-magnifying-glass"></i>
-            <input type="text" placeholder="Sök produkt..." class="search-bar">
+            <form action="/search" method="GET">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="  Sök produkt..." class="search-bar">
+            </form>
             <div class="header-icons">
                 <a href="#"><i class="fas fa-heart header-icon"></i></a>
                 <a href="#"><i class="fas fa-shopping-basket header-icon"></i></a>
@@ -24,8 +26,7 @@
         <nav class="header-nav-menu">
             <ul>
                 <li><a href="#">Nyheter</a></li>
-<!--                 <li class="categories-lg"><a href="#">Kategorier</a>
- -->            <li><a href="#">Topplistan</a></li>
+                <li><a href="#">Topplistan</a></li>
                 <li><a href="#">Rea</a></li>
                 <li><a href="#">Kampanjer</a></li>
             </ul>
@@ -57,24 +58,32 @@
             <h2>Liknande Produkter</h2>
             <div class="product-navigation">
                 <div class="arrow left-arrow">&#9664;</div> <!-- Left arrow -->
-                <div class="product-grid">
-                    <% similarProducts.forEach(similarProduct => { %>
-                    <a href="/products/<%= similarProduct.urlSlug %>" class="product-link">
-                    <div class="product-item">
-                        <div class="new-overlay">Nyhet</div>
-                        <img src="<%= similarProduct.image%>" alt="<%= similarProduct.name %>">
-                        <div class="product-header">
-                            <h3><%= similarProduct.name %></h3>
-                            <p class="price"><%= similarProduct.price %> SEK</p>
+                <div class="product-grid-wrapper">
+                    <div class="product-grid">
+                        <% 
+                        const sevenDaysAgo = new Date();
+                        sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+                        similarProducts.forEach(similarProduct => { 
+                        %>
+                        <div class="product-item">
+                            <a href="/products/<%= similarProduct.urlSlug %>" class="product-link">
+                                <% if (new Date(similarProduct.publishingDate) >= sevenDaysAgo) { %>
+                                <div class="new-overlay">Nyhet</div>
+                                <% } %>
+                                <img src="<%= similarProduct.image %>" alt="<%= similarProduct.name %>">
+                                <div class="product-header">
+                                    <h3><%= similarProduct.name %></h3>
+                                    <p class="price"><%= similarProduct.price %> SEK</p>
+                                </div>
+                                <p><%= similarProduct.brand %></p>
+                            </a>
                         </div>
-                        <p><%= similarProduct.brand %></p>
+                        <% }) %>
                     </div>
-                </a>
-                <% }) %>
-        </div>
-        <div class="arrow right-arrow">&#9654;</div> <!-- Right arrow -->
-    </div>
-</section>
+                </div>
+                <div class="arrow right-arrow">&#9654;</div> <!-- Right arrow -->
+            </div>
+        </section>
 
 <!-- Features Navigation Menu -->
 <div class="features">
