@@ -17,7 +17,7 @@ document.getElementById('new-product-form').addEventListener('submit', async fun
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify(formData) // 
     });
 
     const result = await response.json();
