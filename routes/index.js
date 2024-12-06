@@ -160,4 +160,16 @@ router.get('/contact', function(req, res, next) {
   res.render('contact', { title: 'Contact Us' });
 });
 
+// POST delete product
+router.post('/delete-product', function(req, res, next) {
+    const productId = req.body.id;
+    const stmt = db.prepare('DELETE FROM products WHERE id = ?');
+    const result = stmt.run(productId);
+    if (result.changes > 0) {
+        res.status(200).send('Product deleted');
+    } else {
+        res.status(404).send('Product not found');
+    }
+});
+
 module.exports = router;
