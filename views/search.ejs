@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Freaky Fashion</title>
-    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/search-styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -13,7 +13,7 @@
         <div class="search-container">
             <form action="/search" method="GET">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="  Search..." class="search-bar">
+                <input type="text" name="query" placeholder="  Search..." class="search-bar">
             </form>
         </div>
         <div class="header-icons">
@@ -27,33 +27,27 @@
                 <li><a href="#">Rea</a></li>
                 <li><a href="#">Kampanjer</a></li>
             </ul>
-        </nav>    
+        </nav>
     </header>
     <main>
-        <!-- Main content goes here -->
-        
-        <!-- Popular Products Section -->
-        <section class="popular-products">
-            <% 
-            const sevenDaysAgo = new Date();
-            sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-            %>
-            <% products.forEach(product => { %>
-            <a href="products/<%= product.urlSlug %>" class="product-link">
-                <div class="product">
-                    <% if (new Date(product.publishingDate) >= sevenDaysAgo) { %>
-                    <div class="new-overlay">Nyhet</div>
-                    <% } %>
-                    <div class="heart-overlay"><i class="far fa-heart"></i></div>
-                    <img src="<%= product.image %>" alt="<%= product.name %>">
-                    <div class="product-header">
-                        <h3><%= product.name %></h3>
-                        <p class="price"><%= product.price %> SEK</p>
+        <h1>Search Results for "<%= query %>"</h1>
+        <section class="search-results">
+            <% if (products.length > 0) { %>
+                <% products.forEach(product => { %>
+                    <div class="product-item">
+                        <a href="/products/<%= product.urlSlug %>" class="product-link">
+                            <img src="<%= product.image %>" alt="<%= product.name %>">
+                            <div class="product-header">
+                                <h3><%= product.name %></h3>
+                                <p class="price"><%= product.price %> SEK</p>
+                            </div>
+                            <p><%= product.brand %></p>
+                        </a>
                     </div>
-                    <p><%= product.brand %></p>
-                </div>
-            </a>
-            <% }) %>
+                <% }) %>
+            <% } else { %>
+                <p>No products found.</p>
+            <% } %>
         </section>
         <!-- Features Navigation Menu -->
         <div class="features">
@@ -131,6 +125,6 @@
         </footer>
         
     </main>
-    <script src="/javascripts/script.js"></script>
+    <script src="/javascripts/scripts.js"></script>
 </body>
 </html>

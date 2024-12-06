@@ -4,13 +4,12 @@ body {
     overflow-x: hidden;
 }
 
-header {
+.header {
     display: block;
     justify-content: center;
     align-items: center;
     background-color: #ffffff;
     padding: 20px;
-    
 }
 
 .logo {
@@ -37,6 +36,9 @@ header {
     max-width: 300px;
     border: 1px solid #ccc;
     border-radius: 45px;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
 }
 
 .fa-magnifying-glass {
@@ -54,6 +56,8 @@ header {
     left: 80%;
     display: flex;
     text-decoration: none;
+    display: flex;
+    align-items: center;
 }
 
 .header-icon {
@@ -65,6 +69,9 @@ header {
 
 .header-icons a {
     color: inherit;
+    text-decoration: none;
+    margin-left: 10px;
+    color: #000;
     text-decoration: none;
 }
 
@@ -80,67 +87,22 @@ header {
     flex-direction: column;
     align-items: flex-start;
     margin-bottom: 0;
+    list-style: none;
+    display: flex;
+    padding: 0;
 }
 
 .nav-menu ul li {
     margin: 2px 0;
+    margin-right: 20px;
 }
 
 .nav-menu ul li a {
     color: rgb(7, 7, 7);
     text-decoration: none;
     font-size: 18px;
-}
-
-.hero {
-    display: flex;
-    flex-direction: column-reverse;
-    align-items: center;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.1);
-    padding: 60px 20px;
-    color: #f3f0f00e;
-    border: 2px solid #ccc;
-    margin: 20px;
-    border-radius: 0px;
-    border-color: black;
-}
-
-.hero-image {
-    max-width: 100%;
-    height: 100%;
-    margin-top: -50px;
-}
-
-.hero h1 {
-    font-size: 30px;
-    color: #0e0d0d;
-    margin-bottom: 10px;
-    z-index: 10;
-}
-
-.hero p {
-    font-size: 20px;
-    color: #0e0d0d;
-    margin-bottom: -15px;
-}
-
-.spot img { 
-    display: none;
-    width: 100%;
-    max-width: 300px;
-    border-radius: 10px;
-}
-
-.spots {
-    display: none; /* Hide the spots */
-    margin: 20px 0;
-    display: flex;
-    justify-content: space-around;
-}
-
-.spot-text {
-    display: none;
+    text-decoration: none;
+    color: #000;
 }
 
 .popular-products {
@@ -217,18 +179,50 @@ header {
     color: #0e0d0d;
 }
 
+.main {
+    padding: 20px;
+}
+
+.search-results {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product-item {
+    width: calc(100% - 20px);
+    margin: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.product-item:hover {
+    transform: scale(1.05);
+}
+
+.product-item img {
+    max-width: 100%;
+    height: auto;
+}
+
 .product-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
+    color: inherit;
     text-decoration: none;
+    margin-top: 10px;
 }
 
 .product-header h3 {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 1.2em;
     text-decoration: none;
+    color: inherit;
 }
 
 .product-header .price {
@@ -238,6 +232,17 @@ header {
     font-weight: bold;
     color: #0c0c0c;
     margin: 0;
+}
+
+.product-item a.product-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.product-item a.product-link p {
+    color: inherit;
+    text-align: left; /* Align text to the left */
+    margin: 0; /* Remove default margin */
 }
 
 .features {
@@ -399,11 +404,6 @@ header {
     display: none;
 }
 
-
-
-
-
-
 /* Media query for min-width 640px */
 @media (min-width: 640px) {
 
@@ -518,12 +518,18 @@ header {
         height: 22rem;
     }
 
+    
+.product-item img {
+    max-width: 12rem;
+    height: 15rem;
+}
+
     .product-header h3 {
         font-size: 1.2em; /* Reduced font size */
     }
 
     .product-header .price {
-        font-size: 1em; /* Reduced font size */
+        font-size: 1.2em; /* Reduced font size */
     }
 
     .product p {
@@ -583,7 +589,10 @@ header {
     justify-content: flex-start;
     gap: 0px;
 }
-    
+
+.product-item {
+    width: calc(50% - 20px);
+}
 
 
 
@@ -806,14 +815,8 @@ header {
         .categories-lg {
             display: inline-block;
         }
+
+    .product-item {
+        width: calc(33.333% - 20px);
     }
-
-
-
-
-
-    
-
-    
-
-   
+}

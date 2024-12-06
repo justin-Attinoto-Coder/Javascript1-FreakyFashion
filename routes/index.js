@@ -1,5 +1,6 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const bodyParser = require('body-parser');
 const Database = require('better-sqlite3');
 const slugify = require('slugify');
 const db = new Database('./db/product-manager.db', { verbose: console.log });
@@ -9,6 +10,16 @@ router.use(express.json());
 
 // Middleware to serve static files
 router.use(express.static('public'));
+
+router.use(bodyParser.urlencoded({ extended: true }));
+
+// Function to get products from the database
+function getProducts() {
+  return db.prepare(`
+    SELECT id, name, sku, price, image, brand, description, urlSlug, publishingDate
+    FROM products
+  `).all();
+}
 
 // GET /admin/products - Admin products page (initially empty)
 router.get('/admin/products', function (req, res, next) {
@@ -20,18 +31,7 @@ router.get('/admin/products', function (req, res, next) {
 
 // GET /admin/products/load - API endpoint to load all products
 router.get('/admin/products/load', function (req, res, next) {
-  const rows = db.prepare(`
-    SELECT id,
-          name,
-          description,
-          image,
-          brand,
-          SKU,
-          price,
-          publishingDate
-    FROM products
-  `).all();
-
+  const rows = getProducts();
   res.json(rows);
 });
 
@@ -123,6 +123,24 @@ router.get('/products/:urlSlug', function(req, res, next) {
   } else {
     res.status(404).send('Product not found');
   }
+});
+
+// GET search results
+router.get('/search', function(req, res, next) {
+    const query = req.query.query;
+    console.log('Search query:', query); // Debugging: Log the search query
+    if (!query) {
+        return res.render('search', { query: '', products: [] });
+    }
+    const lowerCaseQuery = query.toLowerCase();
+    const products = getProducts();
+    console.log('Products:', products); // Debugging: Log the fetched products
+    const filteredProducts = products.filter(product => 
+        product.name.toLowerCase().includes(lowerCaseQuery) || 
+        product.description.toLowerCase().includes(lowerCaseQuery)
+    );
+    console.log('Filtered Products:', filteredProducts); // Debugging: Log the filtered products
+    res.render('search', { query, products: filteredProducts });
 });
 
 /* GET checkout page. */

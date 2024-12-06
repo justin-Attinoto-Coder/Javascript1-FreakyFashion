@@ -554,6 +554,28 @@ header {
     justify-content: space-between;
 }
 
+
+.product-carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.product-grid-wrapper {
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    width: 100%;
+}
+
+.product-grid {
+    width: 96.5%;
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
 .arrow {
     cursor: pointer;
     font-size: 2rem;
@@ -565,28 +587,11 @@ header {
 }
 
 .left-arrow {
-    left: 10px;
+    left: -15px;
 }
 
 .right-arrow {
-    right: 10px;
-}
-
-
-.product-carousel {
-    display: flex;
-    align-items: center;
-    position: relative;
-}
-
-.product-grid-wrapper {
-    overflow: hidden;
-    width: 100%;
-}
-
-.product-grid {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+    right: 2%;
 }
 
 .product-item {
