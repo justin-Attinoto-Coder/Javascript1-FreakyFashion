@@ -544,11 +544,6 @@ header {
     padding: 20px; /* Add spacing around the section */
 }
 
-.product-grid-wrapper {
-    overflow: hidden;
-    width: 100%;
-}
-
 .similar-products h2 {
     text-align: center; /* Center the heading */
 }
@@ -561,29 +556,48 @@ header {
 
 .arrow {
     cursor: pointer;
-    font-size: 2em;
-    color: #333;
-    user-select: none; /* Prevent text selection */
+    font-size: 2rem;
+    user-select: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
+
+.product-carousel {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.product-grid-wrapper {
+    overflow: hidden;
+    width: 100%;
 }
 
 .product-grid {
-    display: flex; /* Use Flexbox */
-    justify-content: space-between; /* Space items evenly */
-    align-items: flex-start; /* Align items to the top */
-    gap: 20px; /* Optional: space between items */
-    overflow-x: auto; /* Allow horizontal scrolling */
-    flex-grow: 1; /* Allow the grid to grow */
+    display: flex;
     transition: transform 0.5s ease-in-out;
+}
+
+.product-item {
+    min-width: calc(100% / 3 - 20px);
+    margin: 0 10px;
+    flex: 0 0 calc(100% / 3 - 20px); /* Ensure only 3 items are shown at a time */
+    box-sizing: border-box;
 }
 
 .new-overlay {
     display: none; /* Hide by default */
-}
-
-/* If you want to restrict the maximum width of the grid */
-.product-grid {
-    max-width: 1200px; /* Set a max width for larger screens */
-    margin: 0 auto; /* Center the grid on the page */
 }
 
 .product-item {
@@ -768,13 +782,4 @@ header {
     }
 
     
-}   
-
-
-
-
-    
-
-    
-
-   
+}

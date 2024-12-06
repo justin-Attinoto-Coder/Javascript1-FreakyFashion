@@ -50,37 +50,21 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-document.addEventListener('DOMContentLoaded', function() {
+let currentIndex = 0;
+
+function moveCarousel(direction) {
     const productGrid = document.querySelector('.product-grid');
-    const leftArrow = document.querySelector('.left-arrow');
-    const rightArrow = document.querySelector('.right-arrow');
-    let currentIndex = 0;
+    const productItems = document.querySelectorAll('.product-item');
+    const itemWidth = productItems[0].offsetWidth + 20; // Adjust based on your margin/padding
+    const visibleItems = 3; // Number of items visible at a time
 
-    function updateSlide() {
-        const productWidth = document.querySelector('.product-item').offsetWidth;
-        const visibleProducts = 3; // Number of products visible at a time
-        const totalProducts = productGrid.children.length;
-        const maxIndex = totalProducts - visibleProducts;
+    currentIndex += direction;
 
-        // Wrap around if the currentIndex exceeds the bounds
-        if (currentIndex < 0) {
-            currentIndex = maxIndex;
-        } else if (currentIndex > maxIndex) {
-            currentIndex = 0;
-        }
-
-        productGrid.style.transform = `translateX(-${currentIndex * (productWidth + 20)}px)`;
+    if (currentIndex < 0) {
+        currentIndex = 0;
+    } else if (currentIndex > productItems.length - visibleItems) {
+        currentIndex = productItems.length - visibleItems;
     }
 
-    leftArrow.addEventListener('click', function() {
-        currentIndex--;
-        updateSlide();
-    });
-
-    rightArrow.addEventListener('click', function() {
-        currentIndex++;
-        updateSlide();
-    });
-
-    updateSlide(); // Initialize the slide
-});
+    productGrid.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+}

@@ -460,12 +460,12 @@ header {
 }
 
 .new-product-btn {
-    padding: 10px 20px;
-    font-size: 1em;
-    cursor: pointer;
     position: absolute;
     top: 140px;
     right: 20px;
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
     border: 1px solid #000000;
     border-radius: 5px;
     display: inline-block;
@@ -585,6 +585,27 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
     background-color: #858885;
+}
+
+.load-product-btn {
+    position: absolute;
+    top: 15.5%;  
+    right: 200px;  
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: 1px solid #000000;
+    border-radius: 5px;
+    display: inline-block;
+    color: inherit;
+    background-color: #ffffff;
+    text-decoration: none;
+}
+
+.load-product-button-container {
+    margin: 20px 0;
+    text-decoration: none;
+    color: #000000;
 }
 
 
@@ -978,13 +999,3 @@ input[type="submit"]:hover {
             display: inline-block;
         }
     }
-
-
-
-
-
-    
-
-    
-
-   

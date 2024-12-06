@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/styles.css">
+    <link rel="stylesheet" href="/stylesheets/newProduct.css">
     <script src="/javascripts/loadProducts.js" defer></script>
 </head>
 <body>
@@ -17,7 +17,6 @@
     </div>
     <div class="main-content">
         <div class="main-header">
-            <h2>Produkter</h2>
             <button class="load-product-btn" onclick="loadProducts()">Ladda produkter</button>
             <a href="/admin/products/new" class="new-product-btn">Ny Produkt</a>
         </div>
@@ -27,7 +26,9 @@
                     <th>Namn</th>
                     <th>SKU</th>
                     <th>Pris</th>
-                    <th></th>
+                    <th>Bild</th>
+                    <th>Brand</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="product-list">

@@ -56,8 +56,8 @@
         <!-- Similar products section -->
         <section class="similar-products">
             <h2>Liknande Produkter</h2>
-            <div class="product-navigation">
-                <div class="arrow left-arrow">&#9664;</div> <!-- Left arrow -->
+            <div class="product-carousel">
+                <div class="arrow left-arrow" onclick="moveCarousel(-1)">&#9664;</div> <!-- Left arrow -->
                 <div class="product-grid-wrapper">
                     <div class="product-grid">
                         <% 
@@ -81,7 +81,7 @@
                         <% }) %>
                     </div>
                 </div>
-                <div class="arrow right-arrow">&#9654;</div> <!-- Right arrow -->
+                <div class="arrow right-arrow" onclick="moveCarousel(1)">&#9654;</div> <!-- Right arrow -->
             </div>
         </section>
 
@@ -161,6 +161,6 @@
 </footer>
 
     </main>
-    <script src="script.js"></script>
+    <script src="/javascripts/script.js"></script>
 </body>
 </html>

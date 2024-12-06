@@ -113,7 +113,6 @@ router.get('/products/:urlSlug', function(req, res, next) {
       FROM products
       WHERE id != ?
       ORDER BY RANDOM()
-      LIMIT 4
     `).all(product.id);  // Ensure only one parameter is passed
 
     res.render('product-details', { 
