@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Handle heart overlay for similar products
     const heartOverlays = document.querySelectorAll('.heart-overlay i');
 
     heartOverlays.forEach(heart => {
@@ -13,9 +14,24 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-});
 
-document.addEventListener('DOMContentLoaded', function() {
+    // Handle heart overlay for unique product
+    const heartOverlayUnique = document.querySelector('.heart-overlay-unique i');
+
+    if (heartOverlayUnique) {
+        heartOverlayUnique.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent the default behavior
+            if (heartOverlayUnique.classList.contains('far')) {
+                heartOverlayUnique.classList.remove('far');
+                heartOverlayUnique.classList.add('fas');
+            } else {
+                heartOverlayUnique.classList.remove('fas');
+                heartOverlayUnique.classList.add('far');
+            }
+        });
+    }
+
+    // Handle accordion headers
     const accordionHeaders = document.querySelectorAll('.accordion-header');
 
     accordionHeaders.forEach(header => {

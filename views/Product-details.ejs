@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= product.name %></title>
-    <link rel="stylesheet" href="/stylesheets/Product-details-styles.css">
+    <link rel="stylesheet" href="/stylesheets/productDetailsStyles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -15,11 +15,11 @@
         <div class="search-container">
             <form action="/search" method="GET">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="text" placeholder="  Sök produkt..." class="search-bar">
+                <input type="text" name="query" placeholder="  Sök produkt..." class="search-bar">
             </form>
             <div class="header-icons">
                 <a href="#"><i class="fas fa-heart header-icon"></i></a>
-                <a href="#"><i class="fas fa-shopping-basket header-icon"></i></a>
+                <a href="/checkout"><i class="fas fa-shopping-basket header-icon"></i></a>
             </div>
         </div>
         
@@ -36,18 +36,24 @@
         <!-- Product details section -->
         <section class="popular-products-unique">
             <div class="product-unique">
+                <% 
+                const sevenDaysAgo = new Date();
+                sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+                if (new Date(product.publishingDate) >= sevenDaysAgo) { 
+                %>
                 <div class="new-overlay-unique">Nyhet</div>
+                <% } %>
                 <div class="heart-overlay-unique"><i class="far fa-heart"></i></div>
-                <img src="<%= product.image%>" alt="<%= product.name%>">
+                <img src="<%= product.image %>" alt="<%= product.name %>">
                 <div class="product-info-unique">
                     <div class="product-header-unique">
-                        <h3><%= product.name%></h3>
+                        <h3><%= product.name %></h3>
                     </div>
                     <div class="popular-product-unique">
-                        <div class="product-p-unique"><%= product.brand%></div>
+                        <div class="product-p-unique"><%= product.brand %></div>
                         <div class="product-description-unique"><%= product.description %></div>
                     </div>                        
-                    <p class="price-unique"><%= product.price%> SEK</p>
+                    <p class="price-unique"><%= product.price %> SEK</p>
                 </div>
                 <button class="add-to-cart-btn">Lägg i varukorg</button>
             </div>
@@ -61,15 +67,16 @@
                 <div class="product-grid-wrapper">
                     <div class="product-grid">
                         <% 
+                        similarProducts.forEach(similarProduct => { 
                         const sevenDaysAgo = new Date();
                         sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
-                        similarProducts.forEach(similarProduct => { 
                         %>
                         <div class="product-item">
                             <a href="/products/<%= similarProduct.urlSlug %>" class="product-link">
                                 <% if (new Date(similarProduct.publishingDate) >= sevenDaysAgo) { %>
                                 <div class="new-overlay">Nyhet</div>
                                 <% } %>
+                                <div class="heart-overlay"><i class="far fa-heart"></i></div>
                                 <img src="<%= similarProduct.image %>" alt="<%= similarProduct.name %>">
                                 <div class="product-header">
                                     <h3><%= similarProduct.name %></h3>
