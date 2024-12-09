@@ -4,38 +4,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= title %></title>
-    <link rel="stylesheet" href="/stylesheets/newProduct.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="/tailwind/styles.css">
     <script src="/javascripts/loadProducts.js" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
-    <header id="admin-header">
-        <h1>Administration</h1>
+<body class="bg-gray-100">
+    <header id="admin-header" class="bg-white shadow p-4">
+        <h1 class="text-2xl font-bold text-white bg-black">Administration</h1>
     </header>
-    <div class="sidebar">
-        <h2>Produkter</h2>
-        <!-- Sidebar content goes here -->
-    </div>
-    <div class="main-content">
-        <div class="main-header">
-            <button class="load-product-btn" onclick="loadProducts()">Ladda produkter</button>
-            <a href="/admin/products/new" class="new-product-btn">Ny Produkt</a>
+    <div class="flex">
+        <div class="sidebar bg-gray-200 p-4 w-1/8">
+            <h2 class="text-xl font-semibold">Produkter</h2>
+            <!-- Sidebar content goes here -->
         </div>
-        <table class="product-table">
-            <thead>
-                <tr>
-                    <th>Namn</th>
-                    <th>SKU</th>
-                    <th>Pris</th>
-                    <th>Bild</th>
-                    <th>Brand</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody id="product-list">
-                <!-- Products will be loaded here -->
-            </tbody>
-        </table>
+        <div class="main-content p-4 w-3/4">
+            <div class="main-header flex justify-between items-center mb-4">
+                <button class="load-product-btn bg-blue-500 text-white px-4 py-2 rounded" onclick="loadProducts()">Ladda produkter</button>
+                <a href="/admin/products/new" class="new-product-btn bg-blue-500 text-white border-black px-4 py-2 rounded">Ny Produkt</a>
+            </div>
+            <table class="product-table w-full bg-white shadow rounded">
+                <thead>
+                    <tr>
+                        <th class="p-2 border-b">Namn</th>
+                        <th class="p-2 border-b">SKU</th>
+                        <th class="p-2 border-b">Pris</th>
+                        <th class="p-2 border-b">Bild</th>
+                        <th class="p-2 border-b">Brand</th>
+                        <th class="p-2 border-b">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="product-list">
+                    <!-- Products will be loaded here -->
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>

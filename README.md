@@ -1,102 +1,82 @@
 # Freaky Fashion (Projekt, JavaScript 1)
 
-Detta är projektarbetet för kursen JavaScript 1, där du bygger e-handelssajten Freaky Fashion.
+Detta är projektarbetet för kursen JavaScript 1, där jag har byggt e-handelssajten Freaky Fashion. Projektet syftar till att ge praktisk erfarenhet av att utveckla en fullständig webbapplikation med hjälp av moderna webbutvecklingstekniker.
 
-Nodemon är installerat, så att du slipper starta om applikationen varje gång du gör en ändring. Även Tailwind är installerat, om du vill använda dig av detta.
+## Projektbeskrivning
 
-Följ instruktionerna nedan för att komma igång.
+Freaky Fashion är en e-handelssajt där användare kan söka efter produkter, se produktdetaljer och lägga till produkter i varukorgen. Projektet inkluderar både front-end och back-end utveckling, med fokus på att skapa en responsiv och användarvänlig webbapplikation.
+
+### Funktioner
+
+- **Produktkatalog**: Visa en lista över produkter med namn, pris, bild och varumärke.
+- **Sökfunktion**: Användare kan söka efter produkter baserat på namn och beskrivning.
+- **Produktdetaljer**: Visa detaljerad information om en specifik produkt.
+- **Lägg till i varukorg**: Användare kan lägga till produkter i varukorgen.
+- **Adminpanel**: Administratörer kan ladda upp och hantera produkter.
+- **URL-slugs**: Implementerad för att skapa SEO-vänliga och användarvänliga webbadresser för produktsidor.
+- **Karusell på produktsidan**: En karusell för att visa liknande produkter på produktsidan.
+
+### Teknologier
+
+- **HTML, CSS, JavaScript**: Grundläggande webbutvecklingstekniker för att skapa strukturen och stilen på webbplatsen.
+- **Node.js och Express**: Används för att bygga back-end och API:er.
+- **SQLite3**: Databas för att lagra produktinformation.
+- **JSON**: Används för att hantera datautbyte mellan klient och server.
+- **Tailwind CSS**: Ett utility-first CSS-ramverk för att snabbt och enkelt skapa responsiva layouter.
+- **Nodemon**: Används för att automatiskt starta om applikationen vid ändringar under utveckling.
+
+### Pågående Utveckling
+
+Jag har också påbörjat en ny branch för att integrera Tailwind CSS i projektet. Denna branch syftar till att förbättra designen och göra det enklare att skapa responsiva och moderna gränssnitt.
 
 ## Kom igång
 
-1. Klona projektet
+Följ instruktionerna nedan för att komma igång med projektet.
+
+### Klona projektet
 
 ```sh
 git clone https://github.com/EVXFEH24/JavaScript1-FreakyFashion.git freakyfashion
 ```
 
-2. Öppna projektet i Visual Studio Code
+### Öppna projektet i Visual Studio Code
 
 ```sh
 cd freakyfashion
 code .
 ```
 
-3. Starta inbyggda terminalen.
+### Starta inbyggda terminalen
 
-4. Installera beroenden
+### Installera beroenden
 
 ```sh
 npm install
 ```
 
-5. Starta applikationen
+### Starta applikationen
 
 ```sh
 npm start
 ```
 
-## Projektversioner
+## Lärdomar och Erfarenheter
 
-Projektet har två huvudversioner som speglar olika nivåer av godkännande enligt kursens mål:
+Under detta projekt har jag fått praktisk erfarenhet av att:
 
-### Godkänd Version (godkand)
+- Bygga en fullständig webbapplikation från grunden.
+- Använda Node.js och Express för att skapa en back-end och API:er.
+- Implementera en databaslösning med SQLite3.
+- Hantera datautbyte med JSON.
+- Implementera URL-slugs för SEO-vänliga och användarvänliga webbadresser.
+- Skapa en karusell för att visa liknande produkter på produktsidan.
+- Skapa responsiva och användarvänliga gränssnitt med Tailwind CSS.
+- Hantera projektberoenden och automatisera utvecklingsprocessen med Nodemon.
 
-Denna version uppfyller grundläggande krav och funktionalitet enligt kursens wireframes och specifikationer.
+## Kontakt
 
-- Branch: `godkand`
-- Funktioner:
-  - Grundläggande e-handelssida
-  - Sökfunktion för produkter
-  - Responsiv design för sökresultatsidan
-  - Konsistenta produktbilder
+Om du har några frågor eller vill veta mer om projektet, tveka inte att kontakta mig på [din e-postadress].
 
-### Väl Godkänd Version (val-godkand)
+---
 
-Denna version innehåller ytterligare förbättringar och funktioner för att uppfylla högre krav och mål.
-
-- Branch: `val-godkand`
-- Funktioner:
-  - Alla funktioner från `godkand`-versionen
-  - Förbättrad användarupplevelse
-  - Avancerade sökfunktioner
-  - Förbättrad design och layout
-  - Administrationspanel med produktredigering och borttagning
-
-## Branches
-
-- `main`: Huvudbranch (kan användas för att sammanfoga stabila versioner)
-- `godkand`: Grundläggande version som uppfyller kursens minimikrav
-- `val-godkand`: Förbättrad version med ytterligare funktioner och förbättringar
-
-## Instruktioner för att byta mellan branches
-
-För att byta till en specifik branch, använd följande kommando:
-
-```sh
-git checkout <branch-namn>
-```
-
-Till exempel, för att byta till `godkand`-versionen:
-
-```sh
-git checkout godkand
-```
-
-## Om Projektet
-
-Freaky Fashion är en e-handelssajt byggd som en del av kursen JavaScript 1. Projektet syftar till att ge praktisk erfarenhet av att bygga en fullständig webbapplikation med hjälp av JavaScript, Node.js, och andra moderna webbutvecklingstekniker.
-
-För mer information, vänligen besök kursens hemsida eller kontakta kursansvarig.
-
-## Författare
-
-Projektet är utvecklat av [Ditt Namn] som en del av kursen JavaScript 1.
-
-## Licens
-
-Detta projekt är licensierat under MIT-licensen.
-```
-
-### Summary
-
-This updated README provides a clear description of the project, including the two main branches (`godkand` and `val-godkand`), their features, and instructions on how to switch between them. It also includes general information about the project, how to get started, and additional details that might be useful for anyone interested in the project.
+Tack för att du tar dig tid att läsa om mitt projekt!
